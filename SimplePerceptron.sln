@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29201.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "SimplePerceptron", "SimplePerceptron\SimplePerceptron.pyproj", "{A6D565E0-EA7B-4E71-B7D3-F66E2DD4F66E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6D565E0-EA7B-4E71-B7D3-F66E2DD4F66E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6D565E0-EA7B-4E71-B7D3-F66E2DD4F66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED09C62A-7805-40DB-9ACC-45A612AAB37A}
+	EndGlobalSection
+EndGlobal
