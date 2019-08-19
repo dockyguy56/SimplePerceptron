@@ -139,7 +139,7 @@ class Perceptron(object):
 
 
 
-df = pd.read_csv('C:/Users/mills/Documents/Python-Machine-Learning-Second-Edition/Chapter02/iris.data',
+df = pd.read_csv('C:/Users/mimasaka/Documents/myOwnTraining/Python ML/Python-Machine-Learning-Second-Edition/Chapter02/iris.data',
                 header = None)
 
 y = df.iloc[0:100, 4].values
