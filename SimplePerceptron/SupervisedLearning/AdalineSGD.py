@@ -34,7 +34,7 @@ class AdalineSGD(object):
         self.shuffle = shuffle
         self.random_state = random_state
 
-    def fit(seld, X, y):
+    def fit(self, X, y):
         """ Fit training data.
 
         Parameters
@@ -58,7 +58,7 @@ class AdalineSGD(object):
             cost = []
             for xi, target in zip(X,y):
                 cost.append(self._update_weights(xi, target))
-            avg_const = sum(cost) / len(y)
+            avg_cost = sum(cost) / len(y)
             self.cost_.append(avg_cost)
         return self
 
@@ -76,7 +76,7 @@ class AdalineSGD(object):
     def _shuffle(self, X, y):
         """ Shuffle training data """
         r = self.rgen.permutation(len(y))
-        return X[r].y[r]
+        return X[r], y[r]
 
     def _initialize_weights(self, m):
         """ Initialize weights to small random numbers """
@@ -104,30 +104,31 @@ class AdalineSGD(object):
 
     def predict(self, X):
         """ Return class label after unit step """
-        return np.where(self.activation(self.net_input(X)) >= 0.0, q, -q)
+        return np.where(self.activation(self.net_input(X)) >= 0.0, 1, -1)
 
-df = pd.read_csv('C:/Users/mimasaka/Documents/myOwnTraining/'
-            'Python ML/Python-Machine-Learning-Second-Edition/Chapter02/iris.data',
-            header = None)
+if __name__ == "__main__":
+    df = pd.read_csv('C:/Users/mimasaka/Documents/myOwnTraining/'
+                'Python ML/Python-Machine-Learning-Second-Edition/Chapter02/iris.data',
+                header = None)
 
-y = df.iloc[0:100, 4].values
-y = np.where(y == 'Iris-setosa', -1,1)
-X = df.iloc[0:100, [0,2]].values
+    y = df.iloc[0:100, 4].values
+    y = np.where(y == 'Iris-setosa', -1,1)
+    X = df.iloc[0:100, [0,2]].values
 
-X_std = np.copy(X)
-X_std[:,0] = (X[:,0] - X[:,0].mean()) / X[:,0].std()
-X_std[:,1] = (X[:,1] - X[:,1].mean()) / X[:,1].std()
+    X_std = np.copy(X)
+    X_std[:,0] = (X[:,0] - X[:,0].mean()) / X[:,0].std()
+    X_std[:,1] = (X[:,1] - X[:,1].mean()) / X[:,1].std()
 
-ada = AdalineSGD(n_iter=15, eta=0.01, random_state=1)
-ada.fit(X_std, y)
+    ada = AdalineSGD(n_iter=15, eta=0.01, random_state=1)
+    ada.fit(X_std, y)
 
-plot_decision_regions(X_std, y, classifier=ada)
-plt.title('Adaline - Stochastic Gradient Decent')
-plt.xlabel('sepal length [standardized]')
-plt.ylabel('petal length [standardized]')
-plt.legend(loc='upper left')
-plt.show()
-plt.plot(range(1, len(ada.cost_) + 1), ada.cost_, marker='o')
-plt.xlabel('Epochs')
-plt.ylabel('Average Cost')
-plt.show()
+    plot_decision_regions(X_std, y, classifier=ada)
+    plt.title('Adaline - Stochastic Gradient Decent')
+    plt.xlabel('sepal length [standardized]')
+    plt.ylabel('petal length [standardized]')
+    plt.legend(loc='upper left')
+    plt.show()
+    plt.plot(range(1, len(ada.cost_) + 1), ada.cost_, marker='o')
+    plt.xlabel('Epochs')
+    plt.ylabel('Average Cost')
+    plt.show()

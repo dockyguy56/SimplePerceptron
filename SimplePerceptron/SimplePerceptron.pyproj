@@ -4,13 +4,19 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>a6d565e0-ea7b-4e71-b7d3-f66e2dd4f66e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>SimplePerceptron.py</StartupFile>
+    <StartupFile>test.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>SimplePerceptron</Name>
     <RootNamespace>SimplePerceptron</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterArguments>
+    </InterpreterArguments>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+    <CommandLineArguments>C:/Users/mimasaka/Documents/myOwnTraining/"Python ML"/Python-Machine-Learning-Second-Edition/Chapter02/iris.data</CommandLineArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,13 +27,19 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AdalineSGD.py">
+    <Compile Include="SupervisedLearning\AdalineSGD.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AdalineGD.py">
+    <Compile Include="SupervisedLearning\AdalineGD.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SimplePerceptron.py" />
+    <Compile Include="test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SupervisedLearning\SimplePerceptron.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SupervisedLearning\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
